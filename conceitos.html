@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos Básicos - Lei de Ohm</title>
+    <meta name="description" content="Aprenda os conceitos fundamentais da Lei de Ohm e da eletricidade">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><i class="fas fa-bolt icon"></i> Lei de Ohm</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="conceitos.html" class="active">Conceitos</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="aplicacoes.html">Aplicações</a></li>
+                <li><a href="exercicios.html">Exercícios</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="animate-on-scroll">Conceitos Básicos</h1>
+                <p class="subtitle animate-on-scroll">Entenda os princípios fundamentais da Lei de Ohm e da eletricidade</p>
+            </div>
+        </section>
+
+        <section id="introducao" class="content">
+            <div class="container">
+                <h2 class="text-center">Introdução à Lei de Ohm</h2>
+                <div class="card animate-on-scroll">
+                    <div class="grid">
+                        <div>
+                            <p>A <strong>Lei de Ohm</strong> é uma das leis fundamentais da física elétrica, estabelecida pelo físico e matemático alemão <strong>Georg Simon Ohm</strong> em 1827. Esta lei descreve a relação entre as três grandezas elétricas básicas: <strong>tensão</strong>, <strong>corrente</strong> e <strong>resistência</strong>.</p>
+                            
+                            <p>A lei estabelece que a <strong>tensão (V)</strong> entre dois pontos em um condutor é diretamente proporcional à <strong>corrente (I)</strong> que flui entre esses pontos, sendo a constante de proporcionalidade a <strong>resistência (R)</strong> do condutor.</p>
+                            
+                            <div class="formula-box">
+                                <h3>Fórmula Principal da Lei de Ohm:</h3>
+                                <p class="equation">V = R × I</p>
+                                <p>Onde:</p>
+                                <ul>
+                                    <li>V = Tensão em Volts (V)</li>
+                                    <li>R = Resistência em Ohms (Ω)</li>
+                                    <li>I = Corrente em Amperes (A)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="img-container">
+                            <img src="images/ohm-portrait.webp" alt="Georg Simon Ohm" class="responsive-img">
+                            <p class="img-caption">Georg Simon Ohm (1789-1854), físico e matemático alemão que descobriu a Lei de Ohm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grandezas" class="content bg-light">
+            <div class="container">
+                <h2 class="text-center">Grandezas Fundamentais</h2>
+                
+                <article class="card animate-on-scroll mb-4">
+                    <h3 class="card-title"><i class="fas fa-bolt"></i> Tensão Elétrica (V)</h3>
+                    <div class="grid">
+                        <div>
+                            <p>A <strong>tensão elétrica</strong>, também chamada de <strong>diferença de potencial elétrico</strong>, representa a "força" que impulsiona os elétrons a se moverem em um circuito elétrico.</p>
+                            
+                            <p>Pode ser comparada à pressão em um sistema hidráulico - assim como a pressão faz a água fluir em um cano, a tensão faz os elétrons fluirem em um condutor.</p>
+                            
+                            <h4>Características principais:</h4>
+                            <ul>
+                                <li>Unidade de medida: <strong>Volt (V)</strong></li>
+                                <li>Símbolo: <strong>V</strong> ou <strong>U</strong> ou <strong>E</strong> (em alguns contextos)</li>
+                                <li>É medida entre dois pontos</li>
+                                <li>Fontes de tensão: pilhas, baterias, geradores, tomadas elétricas</li>
+                            </ul>
+                        </div>
+                        <div class="img-container">
+                            <img src="images/tensao-eletrica.webp" alt="Representação de tensão elétrica" class="responsive-img">
+                            <p class="img-caption">Representação da tensão elétrica como força que impulsiona elétrons</p>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card animate-on-scroll mb-4">
+                    <h3 class="card-title"><i class="fas fa-water"></i> Corrente Elétrica (I)</h3>
+                    <div class="grid">
+                        <div>
+                            <p>A <strong>corrente elétrica</strong> é o fluxo ordenado de cargas elétricas (geralmente elétrons) através de um condutor. Representa a quantidade de carga que passa por uma seção do condutor por unidade de tempo.</p>
+                            
+                            <p>Pode ser comparada ao fluxo de água em um cano - a quantidade de água que passa por um ponto do cano a cada segundo é análoga à corrente elétrica.</p>
+                            
+                            <h4>Características principais:</h4>
+                            <ul>
+                                <li>Unidade de medida: <strong>Ampere (A)</strong></li>
+                                <li>Símbolo: <strong>I</strong> (de "intensidade")</li>
+                                <li>Sentido convencional: do potencial mais alto para o mais baixo (positivo para negativo)</li>
+                                <li>Sentido real dos elétrons: do potencial mais baixo para o mais alto (negativo para positivo)</li>
+                            </ul>
+                        </div>
+                        <div class="img-container">
+                            <img src="images/corrente-eletrica.webp" alt="Representação de corrente elétrica" class="responsive-img">
+                            <p class="img-caption">Representação do fluxo de elétrons em um condutor</p>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card animate-on-scroll">
+                    <h3 class="card-title"><i class="fas fa-ban"></i> Resistência Elétrica (R)</h3>
+                    <div class="grid">
+                        <div>
+                            <p>A <strong>resistência elétrica</strong> é a propriedade de um material que se opõe à passagem da corrente elétrica. Todo material apresenta algum grau de resistência ao fluxo de cargas elétricas.</p>
+                            
+                            <p>Pode ser comparada ao atrito ou obstrução em um cano de água - quanto menor o diâmetro do cano, maior a resistência ao fluxo da água, assim como um condutor mais fino oferece maior resistência à corrente elétrica.</p>
+                            
+                            <h4>Características principais:</h4>
+                            <ul>
+                                <li>Unidade de medida: <strong>Ohm (Ω)</strong></li>
+                                <li>Símbolo: <strong>R</strong></li>
+                                <li>Fatores que afetam a resistência:
+                                    <ul>
+                                        <li>Material do condutor</li>
+                                        <li>Comprimento (↑ comprimento = ↑ resistência)</li>
+                                        <li>Área de seção transversal (↑ área = ↓ resistência)</li>
+                                        <li>Temperatura (para a maioria dos metais, ↑ temperatura = ↑ resistência)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="img-container">
+                            <img src="images/resistencia-eletrica.webp" alt="Representação de resistência elétrica" class="responsive-img">
+                            <p class="img-caption">Representação da resistência elétrica em um condutor</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="analogia" class="content">
+            <div class="container">
+                <h2 class="text-center">Analogia Hidráulica</h2>
+                <div class="card animate-on-scroll">
+                    <p>Uma forma muito útil de entender a Lei de Ohm é através da <strong>analogia hidráulica</strong>, que compara um circuito elétrico a um sistema de tubulações de água:</p>
+                    
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">Sistema Hidráulico</h3>
+                            <ul>
+                                <li><strong>Bomba d'água</strong>: cria pressão (diferença de altura)</li>
+                                <li><strong>Pressão da água</strong>: força que impulsiona a água</li>
+                                <li><strong>Fluxo de água</strong>: quantidade de água que passa pelo cano</li>
+                                <li><strong>Obstrução no cano</strong>: restringe o fluxo de água</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3 class="card-title">Sistema Elétrico</h3>
+                            <ul>
+                                <li><strong>Fonte de tensão</strong>: cria diferença de potencial</li>
+                                <li><strong>Tensão (V)</strong>: força que impulsiona os elétrons</li>
+                                <li><strong>Corrente (I)</strong>: quantidade de elétrons que flui pelo condutor</li>
+                                <li><strong>Resistência (R)</strong>: restringe o fluxo de elétrons</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="img-container mt-4">
+                        <img src="images/analogia-hidraulica.webp" alt="Analogia hidráulica da Lei de Ohm" class="responsive-img">
+                        <p class="img-caption">Analogia entre um sistema hidráulico e um circuito elétrico</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resistores" class="content bg-light">
+            <div class="container">
+                <h2 class="text-center">Resistores e Condutores</h2>
+                
+                <div class="grid">
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Resistores Ôhmicos</h3>
+                        <p>São componentes que obedecem à Lei de Ohm, mantendo uma relação linear entre tensão e corrente:</p>
+                        <ul>
+                            <li>A resistência permanece constante independentemente da tensão aplicada</li>
+                            <li>O gráfico V × I é uma linha reta que passa pela origem</li>
+                            <li>Exemplos: resistores de filme metálico, fios de cobre, tungstênio</li>
+                        </ul>
+                        <div class="img-container">
+                            <img src="images/resistor-ohmico.webp" alt="Gráfico de resistor ôhmico" class="responsive-img">
+                            <p class="img-caption">Gráfico tensão × corrente de um resistor ôhmico</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Resistores Não-Ôhmicos</h3>
+                        <p>São componentes que não obedecem à Lei de Ohm, tendo uma relação não-linear entre tensão e corrente:</p>
+                        <ul>
+                            <li>A resistência varia de acordo com a tensão aplicada</li>
+                            <li>O gráfico V × I não é uma linha reta</li>
+                            <li>Exemplos: diodos, lâmpadas incandescentes, termistores</li>
+                        </ul>
+                        <div class="img-container">
+                            <img src="images/resistor-nao-ohmico.webp" alt="Gráfico de resistor não-ôhmico" class="responsive-img">
+                            <p class="img-caption">Gráfico tensão × corrente de um resistor não-ôhmico</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll mt-4">
+                    <h3 class="card-title">Classificação dos Materiais</h3>
+                    <div class="grid">
+                        <div>
+                            <h4>Condutores</h4>
+                            <p>Materiais que permitem facilmente a passagem de corrente elétrica:</p>
+                            <ul>
+                                <li>Possuem baixa resistência elétrica</li>
+                                <li>Exemplos: cobre, alumínio, prata, ouro</li>
+                                <li>Aplicações: fios, cabos, circuitos impressos</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4>Isolantes</h4>
+                            <p>Materiais que dificultam ou impedem a passagem de corrente elétrica:</p>
+                            <ul>
+                                <li>Possuem alta resistência elétrica</li>
+                                <li>Exemplos: borracha, vidro, plástico, cerâmica</li>
+                                <li>Aplicações: revestimento de fios, suportes de componentes</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4>Semicondutores</h4>
+                            <p>Materiais com propriedades intermediárias entre condutores e isolantes:</p>
+                            <ul>
+                                <li>Resistência controlável através de dopagem</li>
+                                <li>Exemplos: silício, germânio, arseneto de gálio</li>
+                                <li>Aplicações: diodos, transistores, circuitos integrados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aplicacoes" class="content">
+            <div class="container">
+                <h2 class="text-center">Aplicações da Lei de Ohm</h2>
+                <div class="grid">
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Circuitos Elétricos</h3>
+                        <p>A Lei de Ohm é fundamental para o dimensionamento e análise de circuitos elétricos:</p>
+                        <ul>
+                            <li>Cálculo de valores desconhecidos (tensão, corrente ou resistência)</li>
+                            <li>Dimensionamento de componentes</li>
+                            <li>Análise de funcionamento de circuitos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Eletroeletrônicos</h3>
+                        <p>Aplicação na concepção e design de dispositivos eletroeletrônicos:</p>
+                        <ul>
+                            <li>Proteção contra sobrecorrente</li>
+                            <li>Divisores de tensão</li>
+                            <li>Reguladores de corrente</li>
+                            <li>Controle de potência</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Instalações Elétricas</h3>
+                        <p>Uso em projetos e manutenção de instalações elétricas:</p>
+                        <ul>
+                            <li>Dimensionamento de cabos</li>
+                            <li>Cálculo de quedas de tensão</li>
+                            <li>Proteção de circuitos (disjuntores, fusíveis)</li>
+                            <li>Distribuição de cargas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="aplicacoes.html" class="btn btn-primary">Ver Mais Aplicações</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="navegacao" class="content bg-light">
+            <div class="container">
+                <h2 class="text-center">Navegação Rápida</h2>
+                <div class="grid">
+                    <a href="index.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-home"></i></div>
+                        <h3 class="card-title">Página Inicial</h3>
+                        <p>Voltar para a página principal</p>
+                    </a>
+                    <a href="calculadora.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-calculator"></i></div>
+                        <h3 class="card-title">Calculadora</h3>
+                        <p>Faça cálculos práticos usando a Lei de Ohm</p>
+                    </a>
+                    <a href="aplicacoes.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-plug"></i></div>
+                        <h3 class="card-title">Aplicações Práticas</h3>
+                        <p>Veja exemplos de aplicações no mundo real</p>
+                    </a>
+                    <a href="exercicios.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                        <h3 class="card-title">Exercícios</h3>
+                        <p>Teste seus conhecimentos</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Lei de Ohm</h3>
+                    <p>Projeto educacional desenvolvido para ensinar os princípios da Lei de Ohm e suas aplicações na eletricidade.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="conceitos.html">Conceitos</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                        <li><a href="aplicacoes.html">Aplicações</a></li>
+                        <li><a href="exercicios.html">Exercícios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Referências</h3>
+                    <ul>
+                        <li><a href="https://brasilescola.uol.com.br/fisica/a-lei-ohm.htm" target="_blank">Brasil Escola</a></li>
+                        <li><a href="https://mundoeducacao.uol.com.br/fisica/lei-ohm.htm" target="_blank">Mundo Educação</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lei de Ohm - Projeto Educacional | Desenvolvido por Thiago Isley de Medeiros | UNIP - Ciências da Computação</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

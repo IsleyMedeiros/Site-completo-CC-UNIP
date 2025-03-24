@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Lei de Ohm</title>
+    <meta name="description" content="Calculadora interativa da Lei de Ohm para calcular tensão, corrente e resistência">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><i class="fas fa-bolt icon"></i> Lei de Ohm</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="conceitos.html">Conceitos</a></li>
+                <li><a href="calculadora.html" class="active">Calculadora</a></li>
+                <li><a href="aplicacoes.html">Aplicações</a></li>
+                <li><a href="exercicios.html">Exercícios</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="animate-on-scroll">Calculadora da Lei de Ohm</h1>
+                <p class="subtitle animate-on-scroll">Calcule facilmente tensão, corrente e resistência usando a Lei de Ohm</p>
+            </div>
+        </section>
+
+        <section id="calculadora" class="content">
+            <div class="container">
+                <div class="grid">
+                    <div class="card animate-on-scroll">
+                        <h2>Fórmulas da Lei de Ohm</h2>
+                        <div class="formula-box">
+                            <p class="mb-1">Estas são as três variações da fórmula:</p>
+                            <div class="formula-grid">
+                                <div class="formula-item">
+                                    <p class="formula-title">Tensão</p>
+                                    <p class="equation">V = R × I</p>
+                                    <p class="formula-description">Quando conhecemos a resistência e a corrente</p>
+                                </div>
+                                <div class="formula-item">
+                                    <p class="formula-title">Corrente</p>
+                                    <p class="equation">I = V ÷ R</p>
+                                    <p class="formula-description">Quando conhecemos a tensão e a resistência</p>
+                                </div>
+                                <div class="formula-item">
+                                    <p class="formula-title">Resistência</p>
+                                    <p class="equation">R = V ÷ I</p>
+                                    <p class="formula-description">Quando conhecemos a tensão e a corrente</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="img-container mt-4">
+                            <img src="images/triangulo-lei-de-ohm.webp" alt="Triângulo da Lei de Ohm" class="responsive-img" style="max-width: 300px;">
+                            <p class="img-caption">Triângulo mnemônico para lembrar as fórmulas da Lei de Ohm</p>
+                        </div>
+                    </div>
+
+                    <div class="card animate-on-scroll">
+                        <h2>Calcule Agora</h2>
+                        <p class="mb-3">Digite dois valores conhecidos para calcular o terceiro. Deixe em branco o campo que deseja calcular.</p>
+
+                        <form id="ohmCalculator">
+                            <div class="form-group">
+                                <label for="voltage">
+                                    <i class="fas fa-bolt" data-tooltip="Diferença de potencial elétrico"></i>
+                                    Tensão (V):
+                                </label>
+                                <input type="number" id="voltage" step="0.1" placeholder="Digite a tensão em Volts">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="current">
+                                    <i class="fas fa-water" data-tooltip="Fluxo de elétrons"></i>
+                                    Corrente (A):
+                                </label>
+                                <input type="number" id="current" step="0.01" placeholder="Digite a corrente em Amperes">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="resistance">
+                                    <i class="fas fa-ban" data-tooltip="Oposição ao fluxo de corrente"></i>
+                                    Resistência (Ω):
+                                </label>
+                                <input type="number" id="resistance" step="0.1" placeholder="Digite a resistência em Ohms">
+                            </div>
+                            
+                            <div class="button-group">
+                                <button type="button" id="calculateBtn" class="btn btn-primary">Calcular</button>
+                                <button type="button" id="clearBtn" class="btn btn-secondary">Limpar</button>
+                            </div>
+                        </form>
+
+                        <div id="result" class="result-box mt-4">
+                            <p>Preencha os valores conhecidos e clique em "Calcular"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-5 animate-on-scroll">
+                    <h2 class="text-center">Como Usar a Calculadora</h2>
+                    <div class="grid">
+                        <div>
+                            <h3>Instruções</h3>
+                            <ol>
+                                <li>Preencha <strong>dois</strong> dos três campos (tensão, corrente ou resistência)</li>
+                                <li>Deixe em <strong>branco</strong> o campo que deseja calcular</li>
+                                <li>Clique no botão <strong>Calcular</strong> para obter o resultado</li>
+                                <li>Use o botão <strong>Limpar</strong> para reiniciar os campos</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h3>Dicas</h3>
+                            <ul>
+                                <li>Certifique-se de usar as <strong>unidades corretas</strong>: Volts (V), Amperes (A) e Ohms (Ω)</li>
+                                <li>Para valores decimais, use o ponto como separador (ex: 2.5)</li>
+                                <li>Para conversão de unidades:
+                                    <ul>
+                                        <li>1 kV = 1000 V</li>
+                                        <li>1 mA = 0.001 A</li>
+                                        <li>1 kΩ = 1000 Ω</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="exemplos" class="content bg-light">
+            <div class="container">
+                <h2 class="text-center">Exemplos Práticos</h2>
+                <div class="grid">
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Exemplo 1: Calcular a Tensão</h3>
+                        <p>Uma lâmpada possui resistência de 220 Ω e opera com uma corrente de 0.5 A. Qual é a tensão aplicada?</p>
+                        <div class="solution-container mt-3">
+                            <button class="show-solution">Ver Solução</button>
+                            <div class="solution hidden">
+                                <p>Usando a fórmula: V = R × I</p>
+                                <p>V = 220 Ω × 0.5 A</p>
+                                <p>V = 110 V</p>
+                                <p>Portanto, a tensão aplicada é de 110 Volts.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Exemplo 2: Calcular a Corrente</h3>
+                        <p>Um ferro de passar roupa conectado a uma tomada de 220 V tem resistência de 40 Ω. Qual é a corrente que passa pelo aparelho?</p>
+                        <div class="solution-container mt-3">
+                            <button class="show-solution">Ver Solução</button>
+                            <div class="solution hidden">
+                                <p>Usando a fórmula: I = V ÷ R</p>
+                                <p>I = 220 V ÷ 40 Ω</p>
+                                <p>I = 5.5 A</p>
+                                <p>Portanto, a corrente que passa pelo ferro é de 5.5 Amperes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Exemplo 3: Calcular a Resistência</h3>
+                        <p>Um chuveiro elétrico conectado a 220 V consome uma corrente de 30 A. Qual é a resistência do chuveiro?</p>
+                        <div class="solution-container mt-3">
+                            <button class="show-solution">Ver Solução</button>
+                            <div class="solution hidden">
+                                <p>Usando a fórmula: R = V ÷ I</p>
+                                <p>R = 220 V ÷ 30 A</p>
+                                <p>R = 7.33 Ω</p>
+                                <p>Portanto, a resistência do chuveiro é de aproximadamente 7.33 Ohms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="navegacao" class="content">
+            <div class="container">
+                <h2 class="text-center">Navegação Rápida</h2>
+                <div class="grid">
+                    <a href="index.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-home"></i></div>
+                        <h3 class="card-title">Página Inicial</h3>
+                        <p>Voltar para a página principal</p>
+                    </a>
+                    <a href="conceitos.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-book"></i></div>
+                        <h3 class="card-title">Conceitos Básicos</h3>
+                        <p>Aprenda os fundamentos da Lei de Ohm</p>
+                    </a>
+                    <a href="aplicacoes.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-plug"></i></div>
+                        <h3 class="card-title">Aplicações Práticas</h3>
+                        <p>Veja exemplos de aplicações no mundo real</p>
+                    </a>
+                    <a href="exercicios.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                        <h3 class="card-title">Exercícios</h3>
+                        <p>Teste seus conhecimentos</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Lei de Ohm</h3>
+                    <p>Projeto educacional desenvolvido para ensinar os princípios da Lei de Ohm e suas aplicações na eletricidade.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="conceitos.html">Conceitos</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                        <li><a href="aplicacoes.html">Aplicações</a></li>
+                        <li><a href="exercicios.html">Exercícios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Referências</h3>
+                    <ul>
+                        <li><a href="https://brasilescola.uol.com.br/fisica/a-lei-ohm.htm" target="_blank">Brasil Escola</a></li>
+                        <li><a href="https://mundoeducacao.uol.com.br/fisica/lei-ohm.htm" target="_blank">Mundo Educação</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lei de Ohm - Projeto Educacional | Desenvolvido por Thiago Isley de Medeiros | UNIP - Ciências da Computação</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Adicionando script para mostrar/ocultar soluções dos exemplos
+        document.addEventListener('DOMContentLoaded', function() {
+            const solutionButtons = document.querySelectorAll('.show-solution');
+            
+            solutionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const solution = this.nextElementSibling;
+                    solution.classList.toggle('hidden');
+                    
+                    if (solution.classList.contains('hidden')) {
+                        this.textContent = 'Ver Solução';
+                    } else {
+                        this.textContent = 'Ocultar Solução';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

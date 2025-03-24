@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lei de Ohm - Projeto Educacional</title>
+    <meta name="description" content="Aprenda sobre a Lei de Ohm e sua aplicação na eletricidade de forma interativa e didática">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><i class="fas fa-bolt icon"></i> Lei de Ohm</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="conceitos.html">Conceitos</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="aplicacoes.html">Aplicações</a></li>
+                <li><a href="exercicios.html">Exercícios</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="animate-on-scroll">Lei de <span>Ohm</span></h1>
+                <p class="subtitle animate-on-scroll">Entenda a relação fundamental entre tensão, corrente e resistência na eletricidade</p>
+                <div class="hero-buttons">
+                    <a href="#sobre" class="btn btn-primary">Saiba Mais</a>
+                    <a href="calculadora.html" class="btn btn-secondary">Experimente a Calculadora</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="content">
+            <div class="container">
+                <h2 class="text-center">O que é a Lei de Ohm?</h2>
+                <div class="card animate-on-scroll">
+                    <div class="grid">
+                        <div>
+                            <p>A Lei de Ohm é uma das leis fundamentais da física elétrica, estabelecida por Georg Ohm em 1827. Ela descreve a relação entre tensão, corrente e resistência em circuitos elétricos.</p>
+                            <p>Esta lei é a base para o entendimento do comportamento dos circuitos elétricos e para o cálculo de grandezas fundamentais na eletrônica moderna.</p>
+                            
+                            <div class="formula-box">
+                                <h3>Fórmula Principal:</h3>
+                                <p class="equation">V = R × I</p>
+                                <button class="btn btn-primary" id="show-variations">Ver variações da fórmula</button>
+                                <div class="formula-variations" id="formula-variations">
+                                    <p class="equation">I = V ÷ R</p>
+                                    <p class="equation">R = V ÷ I</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-container">
+                            <img src="images/formulas-da-lei-de-ohm.webp" alt="Fórmulas da Lei de Ohm" class="responsive-img">
+                            <p class="img-caption">Relações fundamentais da Lei de Ohm em um circuito elétrico</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="grandezas" class="content bg-light">
+            <div class="container">
+                <h2 class="text-center">Grandezas Fundamentais</h2>
+                <div class="grid">
+                    <div class="card animate-on-scroll">
+                        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                        <h3 class="card-title">Tensão (V)</h3>
+                        <p>A tensão elétrica, medida em Volts (V), representa a diferença de potencial elétrico entre dois pontos.</p>
+                        <p>É a "força" que impulsiona os elétrons a se moverem pelo circuito, semelhante à pressão em um sistema hidráulico.</p>
+                        <ul>
+                            <li>Símbolo: V</li>
+                            <li>Unidade: Volt (V)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card animate-on-scroll">
+                        <div class="card-icon"><i class="fas fa-water"></i></div>
+                        <h3 class="card-title">Corrente (I)</h3>
+                        <p>A corrente elétrica, medida em Amperes (A), representa o fluxo de elétrons através de um condutor.</p>
+                        <p>É a quantidade de carga elétrica que passa por um ponto do circuito por unidade de tempo, comparável ao fluxo de água em um cano.</p>
+                        <ul>
+                            <li>Símbolo: I</li>
+                            <li>Unidade: Ampere (A)</li>
+                        </ul>
+                    </div>
+
+                    <div class="card animate-on-scroll">
+                        <div class="card-icon"><i class="fas fa-ban"></i></div>
+                        <h3 class="card-title">Resistência (R)</h3>
+                        <p>A resistência elétrica, medida em Ohms (Ω), representa a oposição ao fluxo de corrente elétrica.</p>
+                        <p>Todo material opõe alguma resistência à passagem de corrente, similar ao atrito em sistemas mecânicos.</p>
+                        <ul>
+                            <li>Símbolo: R</li>
+                            <li>Unidade: Ohm (Ω)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="interativo" class="content">
+            <div class="container">
+                <h2 class="text-center">Experimente a Lei de Ohm</h2>
+                <div class="card">
+                    <p class="text-center mb-4">Ajuste os controles abaixo para ver como a alteração de um valor afeta os outros:</p>
+                    <div class="interactive-controls">
+                        <div class="control-group">
+                            <label for="resistance">Resistência (R): <span id="r-value">1000</span> Ω</label>
+                            <input type="range" id="resistance" min="100" max="10000" value="1000" step="100">
+                        </div>
+                        <div class="control-group">
+                            <label for="current">Corrente (I): <span id="i-value">0.012</span> A</label>
+                            <input type="range" id="current" min="0.001" max="0.1" value="0.012" step="0.001">
+                        </div>
+                        <div class="result-display">
+                            <div class="result-label">Tensão (V):</div>
+                            <div class="result-value" id="voltage-result">12.0 V</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="detalhes" class="content bg-light">
+            <div class="container">
+                <h2 class="text-center">Detalhes Importantes</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Primeira Lei de Ohm</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>A <strong>1ª lei de Ohm</strong> determina que a diferença de potencial entre dois pontos de um resistor é <strong>diretamente proporcional</strong> à corrente elétrica que flui através dele.</p>
+                            <p>Para resistores ôhmicos, a razão entre tensão e corrente é sempre constante, independentemente dos valores individuais.</p>
+                            <div class="img-container">
+                                <img src="images/queda-de-potencial-em-resistores.webp" alt="Queda de potencial em um resistor" class="responsive-img">
+                                <p class="img-caption">Representação da queda de potencial em resistores</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Efeito Joule</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Quando a corrente elétrica passa por um resistor, parte da energia elétrica é transformada em energia térmica. Este fenômeno é conhecido como <strong>Efeito Joule</strong>.</p>
+                            <p>A potência dissipada (P) em forma de calor pode ser calculada por:</p>
+                            <div class="formula-box">
+                                <p class="equation">P = V × I</p>
+                                <p class="equation">P = R × I²</p>
+                                <p class="equation">P = V² ÷ R</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Representação Gráfica</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <p>Graficamente, a Lei de Ohm para um resistor ôhmico resulta em uma reta passando pela origem no gráfico V × I.</p>
+                            <p>A inclinação da reta representa o valor da resistência - quanto maior a inclinação, maior a resistência.</p>
+                            <div class="img-container">
+                                <img src="images/grafico-tensao-no-resistor-ohmico.webp" alt="Gráfico tensão-corrente em um resistor ôhmico" class="responsive-img">
+                                <p class="img-caption">Gráfico mostrando a relação linear entre tensão e corrente em resistores ôhmicos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aplicacoes-rapidas" class="content">
+            <div class="container">
+                <h2 class="text-center">Aplicações Práticas</h2>
+                <div class="grid">
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Dimensionamento de Circuitos</h3>
+                        <p>A Lei de Ohm é fundamental para calcular as características de componentes em circuitos elétricos, desde dispositivos eletrônicos até redes de distribuição de energia.</p>
+                    </div>
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Proteção de Equipamentos</h3>
+                        <p>O cálculo correto da corrente e resistência ajuda a proteger equipamentos contra sobrecarga, garantindo o funcionamento seguro de dispositivos elétricos.</p>
+                    </div>
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Eficiência Energética</h3>
+                        <p>Compreender a relação entre tensão, corrente e resistência permite otimizar sistemas para reduzir o consumo de energia e aumentar a eficiência.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="aplicacoes.html" class="btn btn-primary">Ver Mais Aplicações</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="curiosidades" class="content bg-light">
+            <div class="container">
+                <h2 class="text-center">Você Sabia?</h2>
+                <div class="grid">
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Georg Ohm</h3>
+                        <p>Georg Simon Ohm (1789-1854) foi um físico e matemático alemão que publicou sua teoria em 1827, mas suas descobertas não foram imediatamente aceitas pela comunidade científica da época.</p>
+                    </div>
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Limitações</h3>
+                        <p>A Lei de Ohm não se aplica a todos os componentes. Elementos não-ôhmicos como diodos, LEDs e transistores apresentam relações não-lineares entre tensão e corrente.</p>
+                    </div>
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Reconhecimento</h3>
+                        <p>Em homenagem a Georg Ohm, a unidade de resistência elétrica recebeu o nome de "ohm", simbolizada pela letra grega ômega (Ω).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="navegacao" class="content">
+            <div class="container">
+                <h2 class="text-center">Navegação Rápida</h2>
+                <div class="grid">
+                    <a href="conceitos.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-book"></i></div>
+                        <h3 class="card-title">Conceitos Básicos</h3>
+                        <p>Aprenda mais sobre os fundamentos da Lei de Ohm e eletricidade</p>
+                    </a>
+                    <a href="calculadora.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-calculator"></i></div>
+                        <h3 class="card-title">Calculadora</h3>
+                        <p>Faça cálculos práticos usando as fórmulas da Lei de Ohm</p>
+                    </a>
+                    <a href="aplicacoes.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-plug"></i></div>
+                        <h3 class="card-title">Aplicações Práticas</h3>
+                        <p>Veja exemplos do mundo real e como a Lei de Ohm é aplicada</p>
+                    </a>
+                    <a href="exercicios.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                        <h3 class="card-title">Exercícios</h3>
+                        <p>Teste seus conhecimentos com exercícios práticos</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Lei de Ohm</h3>
+                    <p>Projeto educacional desenvolvido para ensinar os princípios da Lei de Ohm e suas aplicações na eletricidade.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="conceitos.html">Conceitos</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                        <li><a href="aplicacoes.html">Aplicações</a></li>
+                        <li><a href="exercicios.html">Exercícios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Referências</h3>
+                    <ul>
+                        <li><a href="https://brasilescola.uol.com.br/fisica/a-lei-ohm.htm" target="_blank">Brasil Escola</a></li>
+                        <li><a href="https://mundoeducacao.uol.com.br/fisica/lei-ohm.htm" target="_blank">Mundo Educação</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lei de Ohm - Projeto Educacional | Desenvolvido por Thiago Isley de Medeiros | UNIP - Ciências da Computação</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios - Lei de Ohm</title>
+    <meta name="description" content="Exercícios e problemas para testar seu conhecimento sobre a Lei de Ohm">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .quiz-container {
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .question {
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 1px solid #eee;
+            padding-bottom: var(--spacing-md);
+        }
+        
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .options li {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .option-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: var(--spacing-sm);
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .option-label:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .option-input {
+            margin-right: var(--spacing-sm);
+        }
+        
+        .feedback {
+            padding: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .correct {
+            background-color: rgba(46, 204, 113, 0.2);
+            color: #27ae60;
+        }
+        
+        .incorrect {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: #c0392b;
+        }
+        
+        .score-display {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .exercise-difficulty {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: var(--spacing-sm);
+            vertical-align: middle;
+        }
+        
+        .difficulty-facil {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .difficulty-medio {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .difficulty-dificil {
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><i class="fas fa-bolt icon"></i> Lei de Ohm</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="conceitos.html">Conceitos</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="aplicacoes.html">Aplicações</a></li>
+                <li><a href="exercicios.html" class="active">Exercícios</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="animate-on-scroll">Exercícios Práticos</h1>
+                <p class="subtitle animate-on-scroll">Teste seus conhecimentos sobre a Lei de Ohm e suas aplicações</p>
+            </div>
+        </section>
+
+        <section id="instrucoes" class="content">
+            <div class="container">
+                <h2 class="text-center">Como Resolver os Exercícios</h2>
+                <div class="card animate-on-scroll">
+                    <div class="grid">
+                        <div>
+                            <h3>Instruções</h3>
+                            <ol>
+                                <li>Leia atentamente cada questão e todas as alternativas</li>
+                                <li>Selecione a alternativa que você acredita ser correta</li>
+                                <li>Clique em "Verificar Resposta" para conferir</li>
+                                <li>Você pode tentar novamente caso erre uma questão</li>
+                                <li>Ao final, seu desempenho será exibido com base nas respostas corretas</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <h3>Dicas de Estudo</h3>
+                            <ul>
+                                <li>Revise os conceitos básicos antes de começar</li>
+                                <li>Tenha em mãos papel e lápis para cálculos</li>
+                                <li>Não se preocupe com o tempo, foque na compreensão</li>
+                                <li>Observe o nível de dificuldade de cada questão (fácil, médio, difícil)</li>
+                                <li>Utilize a <a href="calculadora.html">calculadora</a> para verificação de resultados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="content bg-light">
+            <div class="container">
+                <h2 class="text-center">Teste de Conhecimentos</h2>
+                <div class="quiz-container animate-on-scroll">
+                    <div id="question-container">
+                        <!-- As questões serão carregadas aqui dinamicamente -->
+                    </div>
+                    
+                    <div class="button-group">
+                        <button id="check-answer" class="btn btn-primary">Verificar Resposta</button>
+                        <button id="next-question" class="btn btn-secondary" disabled>Próxima Questão</button>
+                    </div>
+                    
+                    <div class="score-display" id="score">
+                        Pontuação: 0/0
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="problemas" class="content">
+            <div class="container">
+                <h2 class="text-center">Problemas para Resolver</h2>
+                
+                <div class="card animate-on-scroll mb-4">
+                    <h3 class="card-title">Problema 1 <span class="exercise-difficulty difficulty-facil">Fácil</span></h3>
+                    <p>Um resistor de 330Ω está conectado a uma fonte de 5V. Qual é a corrente que flui pelo resistor?</p>
+                    
+                    <div class="solution-container mt-3">
+                        <button class="show-solution">Ver Solução</button>
+                        <div class="solution hidden">
+                            <h4>Solução:</h4>
+                            <p>Utilizando a Lei de Ohm: I = V ÷ R</p>
+                            <p>I = 5V ÷ 330Ω</p>
+                            <p>I = 0.0152A = 15.2mA</p>
+                            <p>Portanto, a corrente que flui pelo resistor é de aproximadamente 15.2mA.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll mb-4">
+                    <h3 class="card-title">Problema 2 <span class="exercise-difficulty difficulty-medio">Médio</span></h3>
+                    <p>Um chuveiro elétrico consome 5500W quando conectado a uma tomada de 220V. Determine:</p>
+                    <ol type="a">
+                        <li>A corrente elétrica que passa pelo chuveiro</li>
+                        <li>A resistência elétrica do chuveiro</li>
+                    </ol>
+                    
+                    <div class="solution-container mt-3">
+                        <button class="show-solution">Ver Solução</button>
+                        <div class="solution hidden">
+                            <h4>Solução:</h4>
+                            <p>(a) Pela fórmula da potência: P = V × I</p>
+                            <p>I = P ÷ V = 5500W ÷ 220V = 25A</p>
+                            <p>Portanto, a corrente elétrica que passa pelo chuveiro é de 25A.</p>
+                            <p>(b) Pela Lei de Ohm: R = V ÷ I</p>
+                            <p>R = 220V ÷ 25A = 8.8Ω</p>
+                            <p>Portanto, a resistência elétrica do chuveiro é de 8.8Ω.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll mb-4">
+                    <h3 class="card-title">Problema 3 <span class="exercise-difficulty difficulty-medio">Médio</span></h3>
+                    <p>Um circuito possui três resistores em série de 220Ω, 330Ω e 470Ω. Se a corrente que passa pelo circuito é de 10mA, determine:</p>
+                    <ol type="a">
+                        <li>A resistência equivalente do circuito</li>
+                        <li>A tensão total aplicada ao circuito</li>
+                        <li>A tensão em cada resistor</li>
+                    </ol>
+                    
+                    <div class="solution-container mt-3">
+                        <button class="show-solution">Ver Solução</button>
+                        <div class="solution hidden">
+                            <h4>Solução:</h4>
+                            <p>(a) Em resistores em série, a resistência equivalente é a soma das resistências individuais:</p>
+                            <p>R_eq = 220Ω + 330Ω + 470Ω = 1020Ω</p>
+                            <p>(b) Pela Lei de Ohm, V = R × I:</p>
+                            <p>V = 1020Ω × 0.01A = 10.2V</p>
+                            <p>(c) A tensão em cada resistor:</p>
+                            <p>V₁ = 220Ω × 0.01A = 2.2V</p>
+                            <p>V₂ = 330Ω × 0.01A = 3.3V</p>
+                            <p>V₃ = 470Ω × 0.01A = 4.7V</p>
+                            <p>Verificação: V₁ + V₂ + V₃ = 2.2V + 3.3V + 4.7V = 10.2V = V</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3 class="card-title">Problema 4 <span class="exercise-difficulty difficulty-dificil">Difícil</span></h3>
+                    <p>Uma residência possui os seguintes aparelhos ligados simultaneamente em uma rede de 110V:</p>
+                    <ul>
+                        <li>5 lâmpadas de 60W cada</li>
+                        <li>1 televisão de 90W</li>
+                        <li>1 geladeira de 350W</li>
+                        <li>1 micro-ondas de 800W</li>
+                    </ul>
+                    <p>Determine:</p>
+                    <ol type="a">
+                        <li>A corrente total consumida pela residência</li>
+                        <li>Se o disjuntor de 25A é suficiente para este circuito</li>
+                        <li>O consumo de energia em kWh se estes aparelhos ficarem ligados por 3 horas</li>
+                    </ol>
+                    
+                    <div class="solution-container mt-3">
+                        <button class="show-solution">Ver Solução</button>
+                        <div class="solution hidden">
+                            <h4>Solução:</h4>
+                            <p>(a) Primeiro, calculamos a potência total:</p>
+                            <p>P_total = (5 × 60W) + 90W + 350W + 800W = 300W + 90W + 350W + 800W = 1540W</p>
+                            <p>A corrente total pode ser calculada por: I = P ÷ V</p>
+                            <p>I = 1540W ÷ 110V = 14A</p>
+                            <p>(b) Como a corrente total é de 14A e o disjuntor é de 25A, ele é suficiente para suportar esta carga, pois 14A < 25A.</p>
+                            <p>(c) O consumo de energia em kWh é calculado multiplicando a potência em kW pelo tempo em horas:</p>
+                            <p>Consumo = (1540 ÷ 1000) × 3 = 1.54 × 3 = 4.62 kWh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="navegacao" class="content bg-light">
+            <div class="container">
+                <h2 class="text-center">Navegação Rápida</h2>
+                <div class="grid">
+                    <a href="index.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-home"></i></div>
+                        <h3 class="card-title">Página Inicial</h3>
+                        <p>Voltar para a página principal</p>
+                    </a>
+                    <a href="conceitos.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-book"></i></div>
+                        <h3 class="card-title">Conceitos Básicos</h3>
+                        <p>Aprenda os fundamentos da Lei de Ohm</p>
+                    </a>
+                    <a href="calculadora.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-calculator"></i></div>
+                        <h3 class="card-title">Calculadora</h3>
+                        <p>Faça cálculos práticos da Lei de Ohm</p>
+                    </a>
+                    <a href="aplicacoes.html" class="card hover-effect">
+                        <div class="card-icon"><i class="fas fa-plug"></i></div>
+                        <h3 class="card-title">Aplicações Práticas</h3>
+                        <p>Veja exemplos de aplicações no mundo real</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Lei de Ohm</h3>
+                    <p>Projeto educacional desenvolvido para ensinar os princípios da Lei de Ohm e suas aplicações na eletricidade.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="conceitos.html">Conceitos</a></li>
+                        <li><a href="calculadora.html">Calculadora</a></li>
+                        <li><a href="aplicacoes.html">Aplicações</a></li>
+                        <li><a href="exercicios.html">Exercícios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Referências</h3>
+                    <ul>
+                        <li><a href="https://brasilescola.uol.com.br/fisica/a-lei-ohm.htm" target="_blank">Brasil Escola</a></li>
+                        <li><a href="https://mundoeducacao.uol.com.br/fisica/lei-ohm.htm" target="_blank">Mundo Educação</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lei de Ohm - Projeto Educacional | Desenvolvido por Thiago Isley de Medeiros | UNIP - Ciências da Computação</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Questões do quiz
+        const questions = [
+            {
+                id: 1,
+                text: "Qual é a fórmula correta da Lei de Ohm?",
+                options: [
+                    { id: "a", text: "V = I / R" },
+                    { id: "b", text: "V = R × I" },
+                    { id: "c", text: "I = V × R" },
+                    { id: "d", text: "R = I / V" }
+                ],
+                correctAnswer: "b",
+                explanation: "A fórmula correta da Lei de Ohm é V = R × I, onde V é a tensão em Volts, R é a resistência em Ohms e I é a corrente em Amperes."
+            },
+            {
+                id: 2,
+                text: "Qual é a unidade de medida da resistência elétrica?",
+                options: [
+                    { id: "a", text: "Volt (V)" },
+                    { id: "b", text: "Ampere (A)" },
+                    { id: "c", text: "Ohm (Ω)" },
+                    { id: "d", text: "Watt (W)" }
+                ],
+                correctAnswer: "c",
+                explanation: "A unidade de medida da resistência elétrica é o Ohm (Ω), nomeada em homenagem a Georg Simon Ohm."
+            },
+            {
+                id: 3,
+                text: "Se um resistor de 100Ω está conectado a uma fonte de 12V, qual é a corrente que flui pelo circuito?",
+                options: [
+                    { id: "a", text: "0.12A" },
+                    { id: "b", text: "1.2A" },
+                    { id: "c", text: "120A" },
+                    { id: "d", text: "0.012A" }
+                ],
+                correctAnswer: "a",
+                explanation: "Usando a Lei de Ohm: I = V ÷ R = 12V ÷ 100Ω = 0.12A"
+            },
+            {
+                id: 4,
+                text: "Um circuito tem uma corrente de 0.5A e uma resistência de 220Ω. Qual é a tensão aplicada?",
+                options: [
+                    { id: "a", text: "110V" },
+                    { id: "b", text: "440V" },
+                    { id: "c", text: "0.0023V" },
+                    { id: "d", text: "44V" }
+                ],
+                correctAnswer: "a",
+                explanation: "Usando a Lei de Ohm: V = R × I = 220Ω × 0.5A = 110V"
+            },
+            {
+                id: 5,
+                text: "Qual dos seguintes NÃO é um fator que afeta a resistência de um condutor?",
+                options: [
+                    { id: "a", text: "O material do condutor" },
+                    { id: "b", text: "A temperatura do condutor" },
+                    { id: "c", text: "O comprimento do condutor" },
+                    { id: "d", text: "A tensão aplicada ao condutor" }
+                ],
+                correctAnswer: "d",
+                explanation: "A tensão aplicada não afeta a resistência de um condutor ôhmico. Os fatores que afetam a resistência são o material, a temperatura, o comprimento e a área de seção transversal."
+            },
+            {
+                id: 6,
+                text: "O que acontece com a corrente quando a resistência aumenta, mantendo a tensão constante?",
+                options: [
+                    { id: "a", text: "A corrente aumenta" },
+                    { id: "b", text: "A corrente diminui" },
+                    { id: "c", text: "A corrente permanece constante" },
+                    { id: "d", text: "A corrente oscila" }
+                ],
+                correctAnswer: "b",
+                explanation: "Pela Lei de Ohm (I = V/R), se a tensão (V) for constante e a resistência (R) aumentar, a corrente (I) irá diminuir."
+            },
+            {
+                id: 7,
+                text: "Qual é a relação entre potência, tensão e corrente?",
+                options: [
+                    { id: "a", text: "P = V / I" },
+                    { id: "b", text: "P = V + I" },
+                    { id: "c", text: "P = V × I" },
+                    { id: "d", text: "P = V - I" }
+                ],
+                correctAnswer: "c",
+                explanation: "A relação entre potência, tensão e corrente é P = V × I, onde P é a potência em Watts, V é a tensão em Volts e I é a corrente em Amperes."
+            },
+            {
+                id: 8,
+                text: "Um dispositivo consome 2A quando conectado a uma fonte de 9V. Qual é a potência consumida?",
+                options: [
+                    { id: "a", text: "4.5W" },
+                    { id: "b", text: "11W" },
+                    { id: "c", text: "18W" },
+                    { id: "d", text: "7W" }
+                ],
+                correctAnswer: "c",
+                explanation: "Potência = Tensão × Corrente = 9V × 2A = 18W"
+            },
+            {
+                id: 9,
+                text: "Qual dispositivo NÃO segue a Lei de Ohm?",
+                options: [
+                    { id: "a", text: "Resistor de filme metálico" },
+                    { id: "b", text: "Fio de cobre" },
+                    { id: "c", text: "Diodo" },
+                    { id: "d", text: "Resistor de carbono" }
+                ],
+                correctAnswer: "c",
+                explanation: "O diodo é um dispositivo não-ôhmico, ou seja, não segue a Lei de Ohm. Sua relação entre tensão e corrente não é linear."
+            },
+            {
+                id: 10,
+                text: "Qual é a resistência equivalente de dois resistores de 200Ω conectados em série?",
+                options: [
+                    { id: "a", text: "100Ω" },
+                    { id: "b", text: "200Ω" },
+                    { id: "c", text: "400Ω" },
+                    { id: "d", text: "40.000Ω" }
+                ],
+                correctAnswer: "c",
+                explanation: "Em uma associação de resistores em série, a resistência equivalente é a soma das resistências individuais. Portanto, Req = 200Ω + 200Ω = 400Ω."
+            }
+        ];
+
+        // Elementos do DOM
+        const questionContainer = document.getElementById('question-container');
+        const checkAnswerBtn = document.getElementById('check-answer');
+        const nextQuestionBtn = document.getElementById('next-question');
+        const scoreDisplay = document.getElementById('score');
+
+        // Variáveis de controle
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let totalAnswered = 0;
+        let selectedOption = null;
+
+        // Função para mostrar a questão atual
+        function showQuestion() {
+            const question = questions[currentQuestionIndex];
+            
+            const questionHTML = `
+                <div class="question">
+                    <h3>Questão ${currentQuestionIndex + 1} de ${questions.length}</h3>
+                    <p>${question.text}</p>
+                    <ul class="options">
+                        ${question.options.map(option => `
+                            <li>
+                                <label class="option-label">
+                                    <input type="radio" name="question" class="option-input" value="${option.id}">
+                                    ${option.id.toUpperCase()}) ${option.text}
+                                </label>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <div class="feedback" id="feedback"></div>
+                </div>
+            `;
+            
+            questionContainer.innerHTML = questionHTML;
+            
+            // Adicionar evento de seleção de opção
+            document.querySelectorAll('input[name="question"]').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    selectedOption = e.target.value;
+                });
+            });
+            
+            // Resetar botões
+            checkAnswerBtn.disabled = false;
+            nextQuestionBtn.disabled = true;
+        }
+
+        // Função para verificar a resposta
+        function checkAnswer() {
+            if (!selectedOption) {
+                alert('Por favor, selecione uma resposta!');
+                return;
+            }
+            
+            const question = questions[currentQuestionIndex];
+            const feedback = document.getElementById('feedback');
+            
+            if (selectedOption === question.correctAnswer) {
+                feedback.textContent = 'Correto! ' + question.explanation;
+                feedback.className = 'feedback correct';
+                if (totalAnswered === currentQuestionIndex) {
+                    score++;
+                }
+            } else {
+                feedback.textContent = 'Incorreto. ' + question.explanation;
+                feedback.className = 'feedback incorrect';
+            }
+            
+            feedback.style.display = 'block';
+            
+            // Atualizar controles
+            checkAnswerBtn.disabled = true;
+            nextQuestionBtn.disabled = false;
+            
+            // Atualizar pontuação
+            if (totalAnswered === currentQuestionIndex) {
+                totalAnswered++;
+            }
+            scoreDisplay.textContent = `Pontuação: ${score}/${totalAnswered}`;
+        }
+
+        // Função para ir para a próxima questão
+        function nextQuestion() {
+            currentQuestionIndex++;
+            selectedOption = null;
+            
+            if (currentQuestionIndex < questions.length) {
+                showQuestion();
+            } else {
+                // Fim do quiz
+                questionContainer.innerHTML = `
+                    <div class="text-center">
+                        <h3>Fim do Quiz!</h3>
+                        <p>Você acertou ${score} de ${questions.length} questões.</p>
+                        <p>Pontuação final: ${Math.round((score / questions.length) * 100)}%</p>
+                        <button id="restart-quiz" class="btn btn-primary mt-3">Reiniciar Quiz</button>
+                    </div>
+                `;
+                
+                document.getElementById('restart-quiz').addEventListener('click', restartQuiz);
+                
+                checkAnswerBtn.style.display = 'none';
+                nextQuestionBtn.style.display = 'none';
+            }
+        }
+
+        // Função para reiniciar o quiz
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            totalAnswered = 0;
+            selectedOption = null;
+            
+            showQuestion();
+            
+            checkAnswerBtn.style.display = 'inline-block';
+            nextQuestionBtn.style.display = 'inline-block';
+            scoreDisplay.textContent = 'Pontuação: 0/0';
+        }
+
+        // Inicializar o quiz
+        showQuestion();
+
+        // Eventos dos botões
+        checkAnswerBtn.addEventListener('click', checkAnswer);
+        nextQuestionBtn.addEventListener('click', nextQuestion);
+
+        // Adicionando script para mostrar/ocultar soluções dos problemas
+        document.addEventListener('DOMContentLoaded', function() {
+            const solutionButtons = document.querySelectorAll('.show-solution');
+            
+            solutionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const solution = this.nextElementSibling;
+                    solution.classList.toggle('hidden');
+                    
+                    if (solution.classList.contains('hidden')) {
+                        this.textContent = 'Ver Solução';
+                    } else {
+                        this.textContent = 'Ocultar Solução';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="scripts/main.js"></script>
+</body>
+</html> 
